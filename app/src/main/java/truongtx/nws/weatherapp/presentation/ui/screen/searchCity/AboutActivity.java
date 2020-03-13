@@ -91,8 +91,8 @@ public class AboutActivity extends BaseActivity implements AboutPresenter, Adapt
     @Override
     public void getRecyCity(List<ListAPI> listCityList) {
         aboutPresenter.insetLichSu(listCityList);
-        weatherCityAdapter = new WeatherCityAdapter(listCityList, this);
-        recyCity.setAdapter(weatherCityAdapter);
+//        weatherCityAdapter = new WeatherCityAdapter(listCityList, this);
+//        recyCity.setAdapter(weatherCityAdapter);
     }
 
     @Override

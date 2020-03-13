@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity implements MainPresenter, BottomN
         init();
         Managaer();
         enums = getValueFromPreference();
-        initRecyclerView(enums);
+//        initRecyclerView(enums);
     }
 
     private void init() {
@@ -116,6 +116,7 @@ public class MainActivity extends BaseActivity implements MainPresenter, BottomN
         recyNgay.setAdapter(weatherListDayAdapter);
         weatherListAdapter = new WeatherDayAdapter(MainActivity.this, list, type_degree);
         recyList.setAdapter(weatherListAdapter);
+
         String thanhpho = preferences.getString("keyThanhpho", "");
         tvThanhpho.setText(thanhpho);
         String ngay = preferences.getString("keyngay", "");
