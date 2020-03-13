@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundweather"
+    tools:context=".presentation.ui.screen.searchCity.AboutActivity">
+
+    <RelativeLayout
+        android:id="@+id/rela2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_relativeLayout_Search">
+
+        <ImageView
+            android:id="@+id/back_timkiem"
+            style="@style/img_back_timkiem"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_action_back" />
+
+        <TextView
+            style="@style/gach_doc2"
+            android:layout_toRightOf="@+id/back_timkiem"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_choncity"
+            style="@style/tieude_timkiem"
+            android:layout_toRightOf="@id/back_timkiem"
+            android:textColor="@color/white"
+            android:textSize="@dimen/city_size_Search" />
+
+        <TextView
+            android:id="@+id/gach_doc"
+            android:layout_width="@dimen/vertical_relativeLayout"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white" />
+
+        <Spinner
+            android:id="@+id/spin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/gach_doc" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_relativeLayout"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_city_manCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rela2"
+        android:layout_centerHorizontal="true"
+        android:text="@string/nhietdotrong"
+        android:textColor="@color/bg_color"
+        android:textSize="@dimen/text_City" />
+
+    <TextView
+        android:id="@+id/tv_temperature_mancity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_city_manCity"
+        android:layout_centerHorizontal="true"
+        android:text="@string/nhietdotrong"
+        android:textColor="@color/bg_color"
+        android:textSize="@dimen/text_temperature" />
+
+    <ImageView
+        android:id="@+id/imgIconchinh"
+        android:layout_width="@dimen/width_icon"
+        android:layout_height="@dimen/height_icon"
+        android:layout_below="@+id/tv_temperature_mancity"
+        android:layout_centerHorizontal="true" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imgIconchinh">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>

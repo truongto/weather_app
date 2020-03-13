@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#1B4F93"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/tieu_de_chitiet"
+            android:gravity="center"
+            android:text="@string/detail_history"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/thoat_chitiet"
+            style="@style/img_detail"
+            android:src="@drawable/ic_action_xoa" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/Text_LinearLayout_detail">
+
+        <TextView
+            style="@style/hienthi_tieude_chitiet"
+            android:text="@string/text1" />
+
+        <TextView
+            android:id="@+id/gio_chitiet"
+            style="@style/hienthi_chitiet" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/Text_LinearLayout_detail">
+
+        <TextView
+            style="@style/hienthi_tieude_chitiet"
+            android:text="@string/text2" />
+
+        <TextView
+            android:id="@+id/ngay_chitiet"
+            style="@style/hienthi_chitiet" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/Text_LinearLayout_detail">
+
+        <TextView
+            style="@style/hienthi_tieude_chitiet"
+            android:text="@string/text3" />
+
+        <TextView
+            android:id="@+id/thanhpho_chitiet"
+            style="@style/hienthi_chitiet" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/Text_LinearLayout_detail">
+
+        <TextView
+            style="@style/hienthi_tieude_chitiet"
+            android:text="@string/text4" />
+
+        <TextView
+            android:id="@+id/nhietdo_chitiet"
+            style="@style/hienthi_chitiet" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/Text_LinearLayout_detail">
+
+        <TextView
+            style="@style/hienthi_tieude_chitiet"
+            android:text="@string/text5" />
+
+        <TextView
+            android:id="@+id/dogio_chitiet"
+            style="@style/hienthi_chitiet" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/Text_LinearLayout_detail">
+
+        <TextView
+            style="@style/hienthi_tieude_chitiet"
+            android:text="@string/text6" />
+
+        <TextView
+            android:id="@+id/tocdogio_chitiet"
+            style="@style/hienthi_chitiet" />
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/Text_LinearLayout_detail">
+
+        <TextView
+            style="@style/hienthi_tieude_chitiet"
+            android:text="@string/text7" />
+
+        <TextView
+            android:id="@+id/doam_chitiet"
+            style="@style/hienthi_chitiet" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/Text_LinearLayout_detail">
+
+        <TextView
+            style="@style/hienthi_tieude_chitiet"
+            android:text="@string/text8" />
+
+        <TextView
+            android:id="@+id/trangthai_chitiet"
+            style="@style/hienthi_chitiet" />
+    </LinearLayout>
+
+</LinearLayout>
