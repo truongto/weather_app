@@ -10,15 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import truongtx.nws.weatherapp.R;
+import truongtx.nws.weatherapp.application.roomDataBase.model.History;
 import truongtx.nws.weatherapp.presentation.presenters.onClickRecy.ItemOnClick;
-import truongtx.nws.weatherapp.presentation.ui.screen.history.mvp.HistoryModel;
-
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.holder> {
     private Context mContext;
-    private List<HistoryModel> historyModelList;
+    private List<History> historyModelList;
     private String pho;
     private static final String IS_DEGREE = "IS_DEGREE";
     private static final String IS_KELVIN = "IS_KELVIN";
+
+    public HistoryAdapter(Context context, List<History> historyModelList) {
+        this.mContext=context;
+        this.historyModelList=historyModelList;
+    }
 
     @NonNull
     @Override
@@ -29,6 +33,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.holder> 
 
     @Override
     public void onBindViewHolder(@NonNull HistoryAdapter.holder holder, final int position) {
+
+
+
 
   }
 
