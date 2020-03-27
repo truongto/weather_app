@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity implements MainPresenter, BottomN
         init();
         Managaer();
         enums = getValueFromPreference();
-//        initRecyclerView(enums);
+        initRecyclerView(enums);
     }
 
     private void init() {
@@ -384,32 +384,6 @@ public class MainActivity extends BaseActivity implements MainPresenter, BottomN
         tvonhiem.setTypeface(typeface);
         tvUsAQI.setTypeface(typeface);
         tvTieudeOnhiem.setTypeface(type);
-    }
-
-
-    @Override
-    public void resume() {
-
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public void stop() {
-
-    }
-
-    @Override
-    public void destroy() {
-
-    }
-
-    @Override
-    public void onError(String message) {
-
     }
 
 

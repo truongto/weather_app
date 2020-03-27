@@ -63,23 +63,6 @@ public class MainPresenterImpl implements APICallListener {
 
     }
 
-    public void MucDoONhiem() {
-        Integer integer = sharedPreferences.getInt("keyOnhiem", 1);
-        if (integer >= 301) {
-            main.AQI301();
-        } else if (integer >= 201) {
-            main.AQI201();
-        } else if (integer >= 151) {
-            main.AQI151();
-        } else if (integer >= 101) {
-            main.AQI101();
-        } else if (integer >= 51) {
-            main.AQI51();
-        } else {
-            main.AQI00();
-        }
-        main.usAQI(integer);
-    }
 
     @Override
     public void onAPICallSucceedList(WeatherList weatherList) {

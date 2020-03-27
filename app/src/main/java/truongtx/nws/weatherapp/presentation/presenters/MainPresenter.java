@@ -4,9 +4,8 @@ package truongtx.nws.weatherapp.presentation.presenters;
 import java.util.List;
 
 import truongtx.nws.weatherapp.api.weather.modelWeatherList.ListAPI;
-import truongtx.nws.weatherapp.presentation.presenters.base.BasePresenter;
 
-public interface MainPresenter extends BasePresenter {
+public interface MainPresenter {
 
     void thanhpho(String s);
 

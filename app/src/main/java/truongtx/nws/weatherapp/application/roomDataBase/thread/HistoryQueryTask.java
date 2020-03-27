@@ -26,9 +26,9 @@ public class HistoryQueryTask {
     public void insertHistory(OnQuery<long[]> onQuery, History... histories) {
         new InsertHistoryAsyncTask(onQuery).execute();
     }
-    public void deleteHistory(OnQuery<int[]> onQuery, History history) {
-        new deleteHistoryAsyncTask(onQuery).execute();
-    }
+//    public void deleteHistory(OnQuery<int[]> onQuery, History history) {
+//        new deleteHistoryAsyncTask(onQuery).execute();
+//    }
 
 
 //tao luong getall
@@ -75,22 +75,21 @@ public class HistoryQueryTask {
     }
 
     //tao luong delete
-    private class deleteHistoryAsyncTask extends AsyncTask<History,Void,Integer> {
-        OnQuery onQuery;
-
-        public deleteHistoryAsyncTask(OnQuery onQuery) {
-            this.onQuery = onQuery;
-        }
-
-
-        @Override
-        protected Integer doInBackground(History...histories) {
-            return appDatabase.historyDao().delete(histories);
-        }
-
-        @Override
-        protected void onPostExecute(Integer s) {
-            super.onPostExecute(s);
-        }
-    }
+//    private class deleteHistoryAsyncTask extends AsyncTask<History,Void,Integer> {
+//        OnQuery onQuery;
+//        public deleteHistoryAsyncTask(OnQuery onQuery) {
+//            this.onQuery = onQuery;
+//        }
+//
+//
+//        @Override
+//        protected Integer doInBackground(History...histories) {
+//            return appDatabase.historyDao().delete(histories);
+//        }
+//
+//        @Override
+//        protected void onPostExecute(Integer s) {
+//            super.onPostExecute(s);
+//        }
+//    }
 }

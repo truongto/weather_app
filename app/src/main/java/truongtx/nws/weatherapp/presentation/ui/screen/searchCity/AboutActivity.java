@@ -21,6 +21,7 @@ import java.util.List;
 
 import truongtx.nws.weatherapp.R;
 import truongtx.nws.weatherapp.api.weather.modelWeatherList.ListAPI;
+import truongtx.nws.weatherapp.application.roomDataBase.thread.HistoryQueryTask;
 import truongtx.nws.weatherapp.presentation.presenters.AboutPresenter;
 import truongtx.nws.weatherapp.presentation.ui.adapter.WeatherCityAdapter;
 import truongtx.nws.weatherapp.presentation.ui.screen.BaseActivity;
@@ -73,7 +74,8 @@ public class AboutActivity extends BaseActivity implements AboutPresenter, Adapt
     }
 
     private void init() {
-        aboutPresenter = new AboutPresenterImpl(this, this);
+        HistoryQueryTask queryTask = new HistoryQueryTask(this);
+        aboutPresenter = new AboutPresenterImpl(this, this,queryTask);
         tvThanhpho = findViewById(R.id.tv_city_manCity);
         tvNhietdo = findViewById(R.id.tv_temperature_mancity);
 //        tvNgayCity = findViewById(R.id.tv_ngaycity);

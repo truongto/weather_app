@@ -4,14 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import truongtx.nws.weatherapp.R;
 import truongtx.nws.weatherapp.api.weather.modelWeatherList.ListAPI;
 import truongtx.nws.weatherapp.application.roomDataBase.AppDatabase;

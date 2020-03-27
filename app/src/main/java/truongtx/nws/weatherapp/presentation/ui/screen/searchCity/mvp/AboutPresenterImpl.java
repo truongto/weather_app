@@ -42,9 +42,10 @@ public class AboutPresenterImpl implements APICallListener {
     private static final String IS_DEGREE = "IS_DEGREE";
     private static final String IS_KELVIN = "IS_KELVIN";
 
-    public AboutPresenterImpl(AboutPresenter mView, Context context) {
+    public AboutPresenterImpl(AboutPresenter mView, Context context, HistoryQueryTask QueryTask) {
         this.mView = mView;
         this.mcontext = context;
+        this.historyQueryTask=QueryTask;
         this.weatherInteractor = new WeatherInteractor(this);
     }
 
@@ -120,6 +121,13 @@ public class AboutPresenterImpl implements APICallListener {
         } else {
             Toast.makeText(mcontext, R.string.ThemLichSuThatBai, Toast.LENGTH_LONG).show();
         }
+
+        historyQueryTask.insertHistory(new HistoryQueryTask.OnQuery<long[]>() {
+            @Override
+            public void onResult(long[] longs) {
+            }
+        },historyModel);
+
     }
 
     public void quaylai() {

@@ -16,5 +16,5 @@ public interface HistoryDao {
     long[] insertAll(History ... histories);
     // xóa 1 User
     @Delete
-    int delete(History[] histories);
+    int delete(History histories);
 }
