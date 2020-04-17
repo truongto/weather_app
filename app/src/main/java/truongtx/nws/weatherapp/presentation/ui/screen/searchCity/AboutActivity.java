@@ -36,7 +36,6 @@ public class AboutActivity extends BaseActivity implements AboutPresenter, Adapt
     private ImageView imageView;
     private Spinner spinner;
     private ImageView back;
-
     private String thanhphoLichsu;
 
     @Override
@@ -68,7 +67,7 @@ public class AboutActivity extends BaseActivity implements AboutPresenter, Adapt
     }
 
     private void initLayout() {
-        ButterKnife.bind(AboutActivity.this);
+//        ButterKnife.bind(AboutActivity.this);
         spinner.setOnItemSelectedListener(this);
         back.setOnClickListener(this);
     }
@@ -93,8 +92,8 @@ public class AboutActivity extends BaseActivity implements AboutPresenter, Adapt
     @Override
     public void getRecyCity(List<ListAPI> listCityList) {
         aboutPresenter.insetLichSu(listCityList);
-//        weatherCityAdapter = new WeatherCityAdapter(listCityList, this);
-//        recyCity.setAdapter(weatherCityAdapter);
+        weatherCityAdapter = new WeatherCityAdapter(listCityList, this);
+        recyCity.setAdapter(weatherCityAdapter);
     }
 
     @Override

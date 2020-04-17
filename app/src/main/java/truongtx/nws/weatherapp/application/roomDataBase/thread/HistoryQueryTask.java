@@ -53,7 +53,6 @@ public class HistoryQueryTask {
 
     }
 
-
     //tao luong insert
     private class InsertHistoryAsyncTask extends AsyncTask<History, Void, long[]> {
         OnQuery onQuery;

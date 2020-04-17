@@ -1,8 +1,10 @@
 package truongtx.nws.weatherapp.presentation.ui.screen.main;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,16 +13,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
 import truongtx.nws.weatherapp.R;
 import truongtx.nws.weatherapp.api.weather.modelWeatherList.ListAPI;
 import truongtx.nws.weatherapp.application.GPSTracker;
@@ -48,7 +56,7 @@ public class MainActivity extends BaseActivity implements MainPresenter, BottomN
     private SharedPreferences.Editor editor;
     private Gson gson;
     private int type_degree = 0;
-    //    String oC, oF;
+    private String oC, oF;
     private static final String IS_DEGREE = "IS_DEGREE";
     private static final String IS_KELVIN = "IS_KELVIN";
 
@@ -57,10 +65,17 @@ public class MainActivity extends BaseActivity implements MainPresenter, BottomN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         showToastGPS();
+        CheckLocationPermission();
         CheckInternetshowCaidat();
-        gpsTracker = new GPSTracker(getApplicationContext());
+
+
         init();
         Managaer();
+//        gpsTracker = new GPSTracker(getApplicationContext());
+//        enums = getValueFromPreference();
+//        initRecyclerView(enums);
+        gpsTracker = new GPSTracker(getApplicationContext());
+        presenter = new MainPresenterImpl(this, gpsTracker, this);
         enums = getValueFromPreference();
         initRecyclerView(enums);
     }
@@ -71,7 +86,7 @@ public class MainActivity extends BaseActivity implements MainPresenter, BottomN
         gson = new Gson();
         initLayout();
         initData();
-        presenter = new MainPresenterImpl(this, gpsTracker, this);
+
     }
 
     private void initData() {
@@ -100,13 +115,13 @@ public class MainActivity extends BaseActivity implements MainPresenter, BottomN
 
     @Override
     public void getRecyclerView(List<ListAPI> weatherListDays) {
-//        oC = String.valueOf(weatherListDays.get(0).getMain().getTemp()).substring(0, 2);
-//        oF = String.valueOf(weatherListDays.get(0).getMain().onConvertCelsiusToF(Double.parseDouble(oC))).substring(0, 2);
+        oC = String.valueOf(weatherListDays.get(0).getMain().getTemp()).substring(0, 2);
+        oF = String.valueOf(weatherListDays.get(0).getMain().onConvertCelsiusToF(Double.parseDouble(oC))).substring(0, 2);
         saveValueToPreference(weatherListDays);
-//        weatherListDayAdapter = new WeatherHorizontalAdapter(this, weatherListDays, type_degree);
-//        recyNgay.setAdapter(weatherListDayAdapter);
-//        weatherListAdapter = new WeatherDayAdapter(MainActivity.this, weatherListDays, type_degree);
-//        recyList.setAdapter(weatherListAdapter);
+        weatherListDayAdapter = new WeatherHorizontalAdapter(this, weatherListDays, type_degree);
+        recyNgay.setAdapter(weatherListDayAdapter);
+        weatherListAdapter = new WeatherDayAdapter(MainActivity.this, weatherListDays, type_degree);
+        recyList.setAdapter(weatherListAdapter);
 
     }
 
@@ -386,9 +401,30 @@ public class MainActivity extends BaseActivity implements MainPresenter, BottomN
         tvTieudeOnhiem.setTypeface(type);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        gpsTracker = new GPSTracker(getApplicationContext());
+                        presenter = new MainPresenterImpl(this, gpsTracker, this);
+                        enums = getValueFromPreference();
+                        initRecyclerView(enums);
+                        Toast.makeText(this, "Lấy Vị Trí Thành Công  ", Toast.LENGTH_SHORT).show();
 
-    /**
-     * show WeatherResponse to UI
-     */
+                    }
+                } else {
+                    Toast.makeText(this, "Lấy Vị Trí Thất Bại", Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
 
+        }
+
+/**
+ * show WeatherResponse to UI
+ */
+
+    }
 }
