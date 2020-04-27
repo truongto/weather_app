@@ -15,16 +15,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
-
 import truongtx.nws.weatherapp.R;
 import truongtx.nws.weatherapp.application.roomDataBase.AppDatabase;
 import truongtx.nws.weatherapp.application.roomDataBase.model.History;
-import truongtx.nws.weatherapp.presentation.presenters.onClickRecy.ItemOnClick;
-
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.holder> {
     private Context mContext;
     private List<History> historyModelList;
@@ -145,16 +140,11 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.holder> 
         return (historyModelList != null) ? historyModelList.size() : 0;
     }
 
-    public class holder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public class holder extends RecyclerView.ViewHolder {
         TextView tvngay, tvgio, tvdogio, tvtocdogio, tvnhietdo, tvtrangthai, tvdoam, chitiet, xoa, tvthanhpho;
         ImageView iconviewHistory;
-        private ItemOnClick itemOnClick;
-
         public holder(@NonNull View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
-
             tvgio = itemView.findViewById(R.id.gio_history);
             tvngay = itemView.findViewById(R.id.ngay_history);
             tvthanhpho = itemView.findViewById(R.id.thanhpho_history);
@@ -168,20 +158,5 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.holder> 
             xoa = itemView.findViewById(R.id.xoa_history);
         }
 
-        public void setItem(ItemOnClick item) {
-            this.itemOnClick = item;
-        }
-
-        @Override
-        public void onClick(View view) {
-            itemOnClick.onClick(view, getAdapterPosition(), false);
-
-        }
-
-        @Override
-        public boolean onLongClick(View view) {
-            itemOnClick.onClick(view, getAdapterPosition(), true);
-            return true;
-        }
     }
 }
